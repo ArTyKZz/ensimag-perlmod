@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+// A VIRER
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+
 static const int MAXARGS=1024; 
 
 /**
@@ -11,10 +17,15 @@ static const int MAXARGS=1024;
 */
 static char **splitspace(char *cmd) {
   char *charcontext;
+  char *cmdcopy;
+  cmdcopy = malloc(strlen(cmd) + 1);
+  if (cmdcopy == NULL)
+    return NULL;
+  strcpy(cmdcopy, cmd);
   char **args = malloc(sizeof(char*) * MAXARGS);
   memset(args, 0, sizeof(char*) * MAXARGS);
   
-  char *res = strtok_r(cmd, " ", &charcontext);
+  char *res = strtok_r(cmdcopy, " ", &charcontext);
   args[0] = res;
   int i=0;
   while(res != NULL) {
@@ -42,7 +53,9 @@ int executer(char *cmd) {
     i++;
   }
   
-  /* Mettre votre code ici (notamment) */ 
-
+  /* Mettre votre code ici (notamment) */
+  int r;
+  if ((r =  fork()) == 0 ) execvp("/bin/ls", (char *[]){"ls", "-l", 0});
+  else waitpid(r,0,0);
   return 0;
 }
