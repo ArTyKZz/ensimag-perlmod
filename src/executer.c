@@ -2,12 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// A VIRER
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-
-
 static const int MAXARGS=1024; 
 
 /**
@@ -53,9 +47,7 @@ int executer(char *cmd) {
     i++;
   }
   
-  /* Mettre votre code ici (notamment) */
-  int r;
-  if ((r =  fork()) == 0 ) execvp("/bin/ls", (char *[]){"ls", "-l", "/usr/", 0});
-  else waitpid(r,0,0);
+  /* METTRE VOTRE CODE ICI */
+
   return 0;
 }
