@@ -2,8 +2,10 @@
 use v5.10;
 use ensishell;
 my $nb = 1;
+my $res;
 $nb = $ARGV[0] if (@ARGV > 0);
 while ( $nb > 0 ) {
-	ensishell::executer("ls -l /usr/");
+	$res = ensishell::executer("/existepas toto tutu");
 	$nb--;
 }
+exit $res;
