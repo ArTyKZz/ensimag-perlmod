@@ -40,7 +40,7 @@ add_dependencies(ensishell perlmod symboliclink)
 ##
 # Programme de test
 ##
-add_test(Compilation perl ${CMAKE_SOURCE_DIR}/tests/lsl.pl)
+add_test(ExecutionModule perl ${CMAKE_SOURCE_DIR}/tests/lsl.pl)
 add_test(Fork perl ${CMAKE_SOURCE_DIR}/tests/fork.pl)
 add_test(Execvp perl ${CMAKE_SOURCE_DIR}/tests/execvp.pl)
 add_test(Waitpid perl ${CMAKE_SOURCE_DIR}/tests/waitpid.pl)
