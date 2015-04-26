@@ -55,7 +55,18 @@ int executer(char *cmd) {
   
   /* Mettre votre code ici (notamment) */
   int r;
-  if ((r =  fork()) == 0 ) execvp("/bin/ls", (char *[]){"ls", "-l", "/usr/", 0});
-  else waitpid(r,0,0);
+  int status;
+  if ((r =  fork()) == 0 ) {
+    execvp(args[0], args);
+    perror("execvp");
+    exit(-1);
+  }
+  else {
+    waitpid(r, &status,0);
+    if (! WIFEXITED(status) )
+      return -1;
+    int res = WEXITSTATUS(status);
+    return res;
+  }
   return 0;
 }
