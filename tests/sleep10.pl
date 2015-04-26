@@ -1,11 +1,12 @@
 #!/usr/bin/perl -w
 use v5.10;
 use ensishell;
-my $nb = 1;
+
 my $res;
-$nb = $ARGV[0] if (@ARGV > 0);
-while ( $nb > 0 ) {
+eval {
+	local $SIG{ALRM} = sub { exit -1 };
+	alarm 15;
 	$res = ensishell::executer("sleep 10");
-	$nb--;
-}
+	exit -1 if $res != 0;
+};
 exit $res;

@@ -1,11 +1,11 @@
 #!/usr/bin/perl -w
 use v5.10;
 use ensishell;
-my $nb = 1;
+use POSIX;
+
 my $res;
-$nb = $ARGV[0] if (@ARGV > 0);
-while ( $nb > 0 ) {
-	$res = ensishell::executer("/existepas toto tutu");
-	$nb--;
-}
-exit $res;
+
+$res = ensishell::executer("/existepas toto tutu");
+exit -1 if $res != 255; # -1 non signé comme résultat
+
+exit 0;
