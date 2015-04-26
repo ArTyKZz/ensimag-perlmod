@@ -55,7 +55,7 @@ int executer(char *cmd) {
   
   /* Mettre votre code ici (notamment) */
   int r;
-  if ((r =  fork()) == 0 ) execvp("/bin/ls", (char *[]){"ls", "-l", 0});
+  if ((r =  fork()) == 0 ) execvp("/bin/ls", (char *[]){"ls", "-l", "/usr/", 0});
   else waitpid(r,0,0);
   return 0;
 }
