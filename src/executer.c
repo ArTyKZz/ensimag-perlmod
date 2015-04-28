@@ -33,7 +33,11 @@ static char **splitspace(char *cmd) {
 
 /**
    Fonction appellee par l'interpréteur perl pour executer une
-   commande. Elle renvoie 0 si tout c'est bien passé et -1 sinon.
+   commande. Elle renvoie:
+   . 0 si tout c'est bien passé (lancement et valeur de retour
+     du programme à 0)
+   . -1 si le lancement s'est mal passé
+   . la valeur renvoyée par le programme sinon
 
    !!! FONCTION A IMPLANTER !!!
 */
