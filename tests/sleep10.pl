@@ -6,10 +6,10 @@ my $res;
 eval {
 	local $SIG{ALRM} = sub { exit -1 };
 	alarm 15;
-	my debut = time;
+	my $debut = time;
 	$res = ensishell::executer("sleep 10");
 	exit -1 if $res != 0;
-	my fin = time;
-	exit -1 if (fin - debut) < 9;
+	my $fin = time;
+	exit -1 if ($fin - $debut) < 9;
 };
 exit $res;
