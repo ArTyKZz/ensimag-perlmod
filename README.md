@@ -1,5 +1,5 @@
-ensimag-examshell
+ensimag-perlmod
 =================
 
-Skeleton of practical exam.
+Skeleton of practical exam around fork-execvp-waitpid 
 

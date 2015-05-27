@@ -13,9 +13,9 @@ set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -std=gnu99")
 #########
 # Vous devez editer la ligne suivante pour y mettre votre login
 #########
-set(LOGINS login1)
+set(LOGINS logi1)
 
-if (LOGINS MATCHES "logi1")
+if (LOGINS MATCHES "login1")
   message(FATAL_ERROR "** ERREUR / ERROR **: Vous devez modifier CMakeLists.txt pour remplacer login1 par votre login / Substitute login1 with your own login in CMakeLists.txt")
 endif()
 
@@ -44,9 +44,11 @@ add_test(ExecutionModule perl ${CMAKE_SOURCE_DIR}/tests/lsl.pl)
 add_test(Fork perl ${CMAKE_SOURCE_DIR}/tests/fork.pl)
 add_test(Execvp perl ${CMAKE_SOURCE_DIR}/tests/execvp.pl)
 add_test(Waitpid perl ${CMAKE_SOURCE_DIR}/tests/waitpid.pl)
+add_test(LsMoinsL perl ${CMAKE_SOURCE_DIR}/tests/listefich1.pl)
 add_test(Valgrind perl ${CMAKE_SOURCE_DIR}/tests/valgrind.pl)
-add_test(CommandeQuiNExistePas perl ${CMAKE_SOURCE_DIR}/tests/existepas.pl)
 add_test(Sleep10 perl ${CMAKE_SOURCE_DIR}/tests/sleep10.pl)
+add_test(Sleep33 perl ${CMAKE_SOURCE_DIR}/tests/sleep33.pl)
+add_test(CommandeQuiNExistePas perl ${CMAKE_SOURCE_DIR}/tests/existepas.pl)
 add_test(PasLeDroitDExecuter perl ${CMAKE_SOURCE_DIR}/tests/pasledroit.pl)
 add_test(LsFichierInexistant perl ${CMAKE_SOURCE_DIR}/tests/lsexistepas.pl)
 add_custom_target(check perl ${CMAKE_SOURCE_DIR}/tests/lsl.pl)
